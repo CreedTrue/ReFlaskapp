@@ -6,6 +6,8 @@ const ejs = require('ejs');
 const app = express();
 const port = 3000;
 
+app.use(express.static(path.join(__dirname, 'public')));
+
 // Use EJS
 app.set("view engine", "ejs");
 
@@ -29,8 +31,8 @@ app.get('/landing', (req, res) => {
     res.render('landing');
 });
 
-app.get('/signin', (req, res) => {
-    res.render('signin');
+app.get('/login', (req, res) => {
+    res.render('login');
 });
 
 app.get('/product', (req, res) => {
