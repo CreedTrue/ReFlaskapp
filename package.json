@@ -1,0 +1,28 @@
+{
+  "name": "reflask",
+  "version": "1.0.0",
+  "description": "ReFlask product app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CreedTrue/ReFlaskapp.git"
+  },
+  "author": "Creed G, Payton W, Jarom M, Landon W",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CreedTrue/ReFlaskapp/issues"
+  },
+  "homepage": "https://github.com/CreedTrue/ReFlaskapp#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "knex": "^3.1.0",
+    "path": "^0.12.7",
+    "pg": "^8.11.3"
+  }
+}
