@@ -8,7 +8,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CreedTrue/ReFlaskapp.git"
+    "url": "git+https://github.com/CreedTrue/ReFlaskapp.git",
+    "start": "node index.js"
   },
   "author": "Creed G, Payton W, Jarom M, Landon W",
   "license": "ISC",
