@@ -116,7 +116,16 @@ app.post("/login", (req, res) => {
 
 // Products
 app.get('/product', (req, res) => {
-    res.render('product');
+    knex.select('*').from('bottle')
+        .then(data => {
+            const products = data; // Save the data to the "products" variable
+            console.log(products);
+            res.render('product', { products: products }); // Pass the products data to the EJS page
+        })
+        .catch(error => {
+            console.log(error);
+            res.status(500).json({ error: 'Internal server error' });
+        });
 });
 
 // Start the server
