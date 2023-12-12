@@ -90,31 +90,20 @@
     <div class="container">
         <div class="center-div" style="background-color: #343434; font-weight: bold;">
             <h1 style="margin-top: 60px; font-size: 50px;">Login</h1>  
-            <br>
-            <div>
-                <label for="username"></label>
-                <input style="font-size:larger;" class="username" id="username" tabindex="1" type="text" accesskey="u" placeholder="Username" autocomplete="off" size="50" autofocus="" name="username" value="">
-            </div>
-            <br>
-            <div>
-                <label for="password"></label>
-                <input style="font-size:larger;" class="password" type="password" id="password" tabindex="2" accesskey="p" placeholder="Password" autocomplete="off" size="50" name="password" value="">
-            </div>
+            <form method="post" action="/login"> <!-- Use a form tag and specify the method and action -->
+                <div>
+                    <label for="username"></label>
+                    <input style="font-size:larger;" class="username" id="username" tabindex="1" type="text" accesskey="u" placeholder="Username" autocomplete="off" size="50" autofocus="" name="username" value="">
+                </div>
+                <br>
+                <div>
+                    <label for="password"></label>
+                    <input style="font-size:larger;" class="password" type="password" id="password" tabindex="2" accesskey="p" placeholder="Password" autocomplete="off" size="50" name="password" value="">
+                </div>
 
-            <a href="index.html"><input class="signInButton" id="signInButton" onclick="yhlqmdlg()" name="submit" accesskey="l" type="submit" value="Sign In" tabindex="3"></a>
-
+                <input class="signInButton" id="signInButton" name="submit" accesskey="l" type="submit" value="Sign In" tabindex="3">
+            </form>
         </div>
-
     </div>
-
-    <!-- <div class="footer">
-        <byu-footer></byu-footer>
-    </div> -->
-    
-    <script>
-        function yhlqmdlg() {
-            alert("You logged in!!! >:)");
-        }
-    </script>
 </body>
 </html>
