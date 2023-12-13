@@ -1,27 +1,30 @@
 <!-- View that the employee sees when they open the app -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script async src="https://cdn.byu.edu/byu-theme-components/2.x.x/byu-theme-components.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.byu.edu/byu-theme-components/2.x.x/byu-theme-components.min.css" media="all">
+    <link rel="stylesheet" href="https://cdn.byu.edu/byu-theme-components/2.x.x/byu-theme-components.min.css"
+        media="all">
     <link rel="stylesheet" href="styling.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <style>
-
         body {
             background-image: url('images/pexels-mali-maeder-802221.jpg');
             background-size: cover;
             margin: 0;
             font-family: 'Public Sans', 'Noto Sans', 'Open Sans', Helvetica, Arial, sans-serif;
         }
+
         .container {
             min-height: 100vh;
             display: flex;
             flex-direction: column;
         }
+
         .center-div {
             position: absolute;
             top: 50%;
@@ -32,12 +35,14 @@
             height: 450px;
             text-align: center;
             border-radius: 10px;
-            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         }
+
         .footer {
             width: 100%;
             text-align: center;
         }
+
         .username {
             height: 35px;
             width: 310px;
@@ -45,6 +50,7 @@
             background-color: lightgrey;
             border-radius: 5px;
         }
+
         .password {
             height: 35px;
             width: 310px;
@@ -52,6 +58,7 @@
             background-color: lightgrey;
             border-radius: 5px;
         }
+
         .signInButton {
             height: 50px;
             width: 120px;
@@ -61,25 +68,28 @@
             border-radius: 5px;
             margin-top: 50px;
         }
+
         .signInButton:hover {
-            color:#5BB12F;
+            color: #5BB12F;
             background-color: lightgray;
             cursor: pointer;
             border-color: #5BB12F;
         }
+
         .center {
             display: block;
             margin-left: auto;
             margin-right: auto;
             width: 350px;
         }
+
         button {
-            color:#5BB12F;
+            color: #5BB12F;
             background-color: white;
         }
-
     </style>
 </head>
+
 <body>
     <!-- <div>
         <byu-header style="background-color: black;">
@@ -89,32 +99,27 @@
 
     <div class="container">
         <div class="center-div" style="background-color: #343434; font-weight: bold;">
-            <h1 style="margin-top: 60px; font-size: 50px;">Login</h1>  
-            <br>
-            <div>
-                <label for="username"></label>
-                <input style="font-size:larger;" class="username" id="username" tabindex="1" type="text" accesskey="u" placeholder="Username" autocomplete="off" size="50" autofocus="" name="username" value="">
-            </div>
-            <br>
-            <div>
-                <label for="password"></label>
-                <input style="font-size:larger;" class="password" type="password" id="password" tabindex="2" accesskey="p" placeholder="Password" autocomplete="off" size="50" name="password" value="">
-            </div>
+            <h1 style="margin-top: 60px; font-size: 50px;">Login</h1>
+            <form method="post" action="/login"> <!-- Use a form tag and specify the method and action -->
+                <div>
+                    <label for="username"></label>
+                    <input style="font-size:larger;" class="username" id="username" tabindex="1" type="text"
+                        accesskey="u" placeholder="Username" autocomplete="off" size="50" autofocus=""
+                        name="customer_username" value="">
+                </div>
+                <br>
+                <div>
+                    <label for="password"></label>
+                    <input style="font-size:larger;" class="password" type="password" id="password" tabindex="2"
+                        accesskey="p" placeholder="Password" autocomplete="off" size="50" name="customer_password"
+                        value="">
+                </div>
 
-            <a href="index.html"><input class="signInButton" id="signInButton" onclick="yhlqmdlg()" name="submit" accesskey="l" type="submit" value="Sign In" tabindex="3"></a>
-
+                <input class="signInButton" id="signInButton" name="submit" accesskey="l" type="submit" value="Sign In"
+                    tabindex="3">
+            </form>
         </div>
-
     </div>
-
-    <!-- <div class="footer">
-        <byu-footer></byu-footer>
-    </div> -->
-    
-    <script>
-        function yhlqmdlg() {
-            alert("You logged in!!! >:)");
-        }
-    </script>
 </body>
+
 </html>
