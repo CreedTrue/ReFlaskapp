@@ -37,10 +37,12 @@ app.set("view engine", "ejs");
 const knex = require("knex")({
   client: "pg",
   connection: {
-    host: "localhost",
-    user: "postgres",
-    password: "IAmElonMuskrat",
-    database: "ReFlask_DB",
+    host: process.env.RDS_HOSTNAME || "localhost",
+    user: process.env.RDS_USERNAME || "postgres",
+    password: process.env.RDS_PASSWORD || "IAmElonMuskrat",
+    database: process.env.RDS_DB_NAME || "ReFlask_DB",
+    port: process.env.RDS_PORT || 5432,
+    ssl: process.env.DB_SSL ? {rejectUnauthorized: false} : false
   },
 });
 
