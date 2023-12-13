@@ -115,6 +115,9 @@ This is our bottle website-->
                         <a href="#page-top"></a>
                     </li>
                     <li>
+                        <a href="/product">Product Gallery</a>
+                    </li>
+                    <li>
                         <a class="page-scroll" href="#portfolio">Portfolio</a>
                     </li>
                     <li>
@@ -127,7 +130,7 @@ This is our bottle website-->
                         <a class="page-scroll" href="#testimonial">Testimonials</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#partner">Partner</a>
+                        <a class="page-scroll" href="#charities">Charities</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#contact">Contact</a>
@@ -536,13 +539,13 @@ This is our bottle website-->
     <!-- End Testimonial Section -->
 
     <!-- Clients Aside -->
-    <section id="partner">
+    <section id="charities">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="section-title text-center">
-                        <h3>Our Honorable Partners</h3>
-                        <p>Helping us achieve our mission</p>
+                        <h3>Help us Give the World Clean Water</h3>
+                        <p>10% of all proceeds go toward the charity of your choice</p>
                     </div>
                 </div>
             </div>
@@ -550,43 +553,53 @@ This is our bottle website-->
                 <div class="clients">
 
                     <div class="col-md-12">
-                        <img src="images/logos/themeforest.jpg" class="img-responsive" alt="...">
+                        <img src="data:image/png;base64,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"
+                            class="img-responsive" alt="...">
                     </div>
 
                     <div class="col-md-12">
-                        <img src="images/logos/creative-market.jpg" class="img-responsive" alt="...">
+                        <img src="https://give.water.org/media/profile-pics/4406/profile-photo.jpg"
+                            class="img-responsive" alt="...">
                     </div>
 
                     <div class="col-md-12">
-                        <img src="images/logos/designmodo.jpg" class="img-responsive" alt="...">
+                        <img src="https://upleaf.com/wp-content/uploads/2014/05/charitywater-logo.jpg"
+                            class="img-responsive" alt="...">
                     </div>
 
                     <div class="col-md-12">
-                        <img src="images/logos/creative-market.jpg" class="img-responsive" alt="...">
+                        <img src="https://directory.ourgoodbrands.com/wp-content/uploads/2022/03/LifeStraw-logo.png"
+                            class="img-responsive" alt="...">
                     </div>
 
                     <div class="col-md-12">
-                        <img src="images/logos/microlancer.jpg" class="img-responsive" alt="...">
+                        <img src="https://humanityfirst.org/wp-content/uploads/2020/03/water-for-life.png"
+                            class="img-responsive" alt="...">
                     </div>
 
                     <div class="col-md-12">
-                        <img src="images/logos/themeforest.jpg" class="img-responsive" alt="...">
+                        <img src="data:image/png;base64,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"
+                            class="img-responsive" alt="...">
                     </div>
 
                     <div class="col-md-12">
-                        <img src="images/logos/microlancer.jpg" class="img-responsive" alt="...">
+                        <img src="https://give.water.org/media/profile-pics/4406/profile-photo.jpg"
+                            class="img-responsive" alt="...">
                     </div>
 
                     <div class="col-md-12">
-                        <img src="images/logos/designmodo.jpg" class="img-responsive" alt="...">
+                        <img src="https://upleaf.com/wp-content/uploads/2014/05/charitywater-logo.jpg"
+                            class="img-responsive" alt="...">
                     </div>
 
                     <div class="col-md-12">
-                        <img src="images/logos/creative-market.jpg" class="img-responsive" alt="...">
+                        <img src="https://directory.ourgoodbrands.com/wp-content/uploads/2022/03/LifeStraw-logo.png"
+                            class="img-responsive" alt="...">
                     </div>
 
                     <div class="col-md-12">
-                        <img src="images/logos/designmodo.jpg" class="img-responsive" alt="...">
+                        <img src="https://humanityfirst.org/wp-content/uploads/2020/03/water-for-life.png"
+                            class="img-responsive" alt="...">
                     </div>
 
                 </div>
