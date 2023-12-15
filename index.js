@@ -1,3 +1,8 @@
+// Creed garner, Payton Womack, Landon Webb, and Jarom Mollinet
+// 12/14/2023
+// This is the index.js file for the ReFlask site which helps people connect witha  business that recylces old hydroflasks.
+
+// Import required modules
 const express = require("express");
 
 const path = require("path");
@@ -6,12 +11,14 @@ const ejs = require("ejs");
 
 const app = express();
 
+// Set up port
 const port = process.env.PORT || 3000;
 
 const bodyParser = require("body-parser");
 
 app.use(bodyParser.json()); // Parse JSON data
 
+// session storage library
 const session = require("express-session");
 
 // Session and parser
@@ -45,7 +52,7 @@ const knex = require("knex")({
     ssl: process.env.DB_SSL ? {rejectUnauthorized: false} : false
   },
 });
-
+// Check if the connection is successful
 knex
   .raw("SELECT 1+1 as result")
   .then(() => {
@@ -83,12 +90,12 @@ app.get("/", requireLogin, (req, res) => {
   res.render(path.join(__dirname + "/index.ejs"), { isLoggedIn, extraData });
 });
 
-// Login
+// Login Get
 app.get("/login", (req, res) => {
   res.render("login");
 });
 
-// Login
+// Login Post
 app.post("/login", (req, res) => {
   console.log("Username:", req.body.customer_username);
   console.log("Password:", req.body.customer_password);
@@ -117,15 +124,17 @@ app.post("/login", (req, res) => {
     });
 });
 
-// Products
+// Products page
 app.get("/product", (req, res) => {
+  // Get all products from the database
   knex
     .select("*")
     .from("bottle")
     .then((data) => {
       const products = data; // Save the data to the "products" variable
       console.log(products);
-      res.render("product", { products: products }); // Pass the products data to the EJS page
+      // Render the product.ejs view and pass data for all products so they can be dinamically displayed
+      res.render("product", { products: products }); 
     })
     .catch((error) => {
       console.log(error);
