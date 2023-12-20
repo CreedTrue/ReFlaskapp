@@ -73,7 +73,7 @@ This is our bottle website-->
 
         body {
             font-family: "Poppins", sans-serif;
-            color: #444444;
+            color: #e0e0e0;
             background: linear-gradient(to top left, #444444, #222222);
         }
 
@@ -128,10 +128,6 @@ This is our bottle website-->
 
         .section-products .single-product:hover .part-1::before {
             transform: scale(1.2, 1.2) rotate(5deg);
-        }
-
-        .single-product:hover {
-            cursor: pointer;
         }
 
         .section-products #product-1 .part-1::before {
@@ -233,24 +229,33 @@ This is our bottle website-->
             left: 0;
             width: 100%;
             height: 1px;
-            background-color: #444444;
+            background-color: #ebebeb;
             transform: translateY(-50%);
         }
     </style>
-
-    <script>
-        function navigateToProduct(bottleId) {
-            // Construct the new URL with the bottle_id parameter
-            const newUrl = `/product-details?bottle_id=${bottleId}`;
-            
-            // Navigate to the new page
-            window.location.href = newUrl;
-        }
-    </script>
-
 </head>
 
 <body class="index"></body>
+
+
+<!-- Styleswitcher
+================================================== -->
+<!-- <div class="colors-switcher">
+            <a id="show-panel" class="hide-panel"><i class="fa fa-tint"></i></a>        
+                <ul class="colors-list">
+                    <li><a title="Light Red" onClick="setActiveStyleSheet('light-red'); return false;" class="light-red"></a></li>
+                    <li><a title="Blue" class="blue" onClick="setActiveStyleSheet('blue'); return false;"></a></li>
+                    <li class="no-margin"><a title="Light Blue" onClick="setActiveStyleSheet('light-blue'); return false;" class="light-blue"></a></li>
+                    <li><a title="Green" class="green" onClick="setActiveStyleSheet('green'); return false;"></a></li>
+                    
+                    <li class="no-margin"><a title="light-green" class="light-green" onClick="setActiveStyleSheet('light-green'); return false;"></a></li>
+                    <li><a title="Yellow" class="yellow" onClick="setActiveStyleSheet('yellow'); return false;"></a></li>
+                    
+                </ul>
+
+        </div>   -->
+<!-- Styleswitcher End
+================================================== -->
 
 <!-- Navigation -->
 <nav class="navbar navbar-default navbar-fixed-top">
@@ -277,19 +282,7 @@ This is our bottle website-->
                     <a href="/product">Product Gallery</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="/#service">Services</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="/#team">Team</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="/#testimonial">Testimonials</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="/#charities">Charities</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="/#contact">Contact</a>
+                    <a class="page-scroll" href="#contact">Contact</a>
                 </li>
                 <li>
                     <a class="page-scroll" href="/account">Account</a>
@@ -308,231 +301,133 @@ This is our bottle website-->
         align-items: center;
     }
 </style>
-<style>
-    #searchForm {
-        margin: 1rem;
-    }
-
-    #searchInput {
-        /* Add any additional styles for the input here */
-    }
-
-    #searchForm button {
-        color: white;
-        background-color: #fe302f;
-        border: none;
-    }
-
-    #searchForm button:active {
-        background-color: #d63028;
-        /* Change to a darker shade of red when the button is clicked */
-    }
-</style>
-<!-- Your existing HTML code -->
-
 <section class="section-products">
-    <div class="container">
-        <div class="row justify-content-center text-center">
-            <div class="col-md-8 col-lg-6">
-                <div class="header">
-                    <h2 style="color: white; font-weight: bold;">Featured Products</h2>
-                </div>
-            </div>
-        </div>
-
-        <!-- Search Bar -->
-        <form id="searchForm">
-            <input type="text" id="searchInput" placeholder="Search by title">
-            <button type="submit">Search</button>
-        </form>
-
-        <!-- Product listings -->
-        <% for (let i=0; i < products.length; i++) { %>
-            <!-- Single Product -->
-            <div class="col-md-6 col-lg-4 col-xl-3">
-                <div id="product-<%= i + 1 %>" class="single-product" onclick="navigateToProduct('<%= products[i].bottle_id %>')">
-                    <div class="part-1"
-                        style="background: url('<%= products[i].bottle_img_url %>'); background-size: cover; background-repeat: no-repeat">
-                        <!-- Part 1 content -->
-                    </div>
-                    <div class="part-2">
-                        <h2 class="product-title" style="color: white; font-weight: bold;">
-                            <%= products[i].bottle_description %>
-                        </h2>
-                        <!-- Part 2 content -->
-                    </div>
-                </div>
-            </div>
-            <% } %>
-        <div class="row" id="productList">
-            <% for (let i=0; i < products.length; i++) { %>
-                <!-- Single Product -->
-                <div class="col-md-6 col-lg-4 col-xl-3">
-                    <div id="product-<%= i + 1 %>" class="single-product">
-                        <div class="part-1"
-                            style="background: url('<%= products[i].bottle_img_url %>'); background-size: cover; background-repeat: no-repeat">
-                            <!-- Part 1 content -->
-                        </div>
-                        <div class="part-2">
-                            <h2 class="product-title" style="color: white; font-weight: bold;">
-                                <%= products[i].bottle_description %>
-                            </h2>
-                            <!-- Part 2 content -->
-                        </div>
-                    </div>
-                </div>
-                <% } %>
-        </div>
-    </div>
-</section>
-
-<!-- Search Script -->
-<!-- Search Script -->
-<script>
-    document.getElementById("searchForm").addEventListener("submit", function (event) {
-        event.preventDefault();
-
-        // Get the search input value and convert it to lowercase
-        const searchQuery = document.getElementById("searchInput").value.toLowerCase();
-
-        // Make an AJAX request to the server with the search query
-        fetch(`/search?query=${encodeURIComponent(searchQuery)}`)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
-                }
-                return response.json();
-            })
-            .then(products => {
-                // Update the product list with the search results
-                const productList = document.getElementById("productList");
-                productList.innerHTML = "";
-
-                for (let i = 0; i < products.length; i++) {
-                    // Create HTML for each product
-                    const productHtml = `
-                        <div class="col-md-6 col-lg-4 col-xl-3">
-                            <div id="product-${i + 1}" class="single-product">
-                                <div class="part-1" style="background: url('${products[i].bottle_img_url}'); background-size: cover; background-repeat: no-repeat"></div>
-                                <div class="part-2">
-                                    <h2 class="product-title" style="color: white; font-weight: bold;">${products[i].bottle_description}</h2>
-                                </div>
+    <div class="card text-center">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title">Account Management</h3>
                             </div>
-                        </div>`;
-                    productList.innerHTML += productHtml;
-                }
-            })
-            .catch(error => console.error("Error fetching search results:", error));
-    });
-</script>
-
-
-<!-- Start Feature Section -->
-<section id="service" class="services-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="section-title text-center">
-                    <h3 style="color: white">Our Services</h3>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="feature-2">
-                    <div class="media">
-                        <div class="pull-left">
-                            <i class="fa fa-magic"></i>
-                            <div class="border"></div>
-                        </div>
-                        <div class="media-body">
-                            <h4 class="media-heading" style="color: white">Art Design</h4>
-                            <p style="color: white">Each bottle is unique and painted carefully</p>
                         </div>
                     </div>
                 </div>
-            </div><!-- /.col-md-4 -->
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="feature-2">
-                    <div class="media">
-                        <div class="pull-left">
-                            <i class="fa fa-recycle"></i>
-                            <div class="border"></div>
-                        </div>
-                        <div class="media-body">
-                            <h4 class="media-heading" style="color: white">Recycle</h4>
-                            <p style="color: white">Every bottle is reused and recycled</p>
-                        </div>
-                    </div>
-                </div>
-            </div><!-- /.col-md-4 -->
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="feature-2">
-                    <div class="media">
-                        <div class="pull-left">
-                            <i class="fa fa-globe"></i>
-                            <div class="border"></div>
-                        </div>
-                        <div class="media-body">
-                            <h4 class="media-heading" style="color: white">Worldwide Mission</h4>
-                            <p style="color: white">Goal is to inspire others to create something out of nothing</p>
-                        </div>
-                    </div>
-                </div>
-            </div><!-- /.col-md-4 -->
-
-        </div><!-- /.row -->
-
-    </div><!-- /.container -->
-</section>
-<!-- End Feature Section -->
-
-
-
-<!-- Start Fun Facts Section -->
-<section class="fun-facts">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-sm-6 col-md-3">
-                <div class="counter-item">
-                    <i class="fa fa-solid fa-tint"></i>
-                    <div class="timer" id="item1" data-to="9" data-speed="3000"></div>
-                    <h5>Water plants donated to</h5>
-                </div>
+            </div> 
+        <br>
+        <form id="accountForm">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" id="username" name="customer_username" value="<%= customer[0].customer_username %>" readonly>
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-3">
-                <div class="counter-item">
-                    <i class="fa fa-check"></i>
-                    <div class="timer" id="item2" data-to="702" data-speed="3000"></div>
-                    <h5>Bottles recycled</h5>
-                </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="text" class="form-control" id="password" name="customer_password" value="<%= customer[0].customer_password %>">
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-3">
-                <div class="counter-item">
-                    <i class="fa fa-cubes"></i>
-                    <div class="timer" id="item3" data-to="321" data-speed="3000"></div>
-                    <h5>Lbs of aluminum recycled</h5>
-                </div>
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" class="form-control" id="firstName" name="customer_first_name" value="<%= customer[0].customer_first_name %>" >
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-3">
-                <div class="counter-item">
-                    <i class="fa fa-male"></i>
-                    <div class="timer" id="item4" data-to="500" data-speed="3000"></div>
-                    <h5>Happy clients</h5>
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" class="form-control" id="lastName" name="customer_last_name" value="<%= customer[0].customer_last_name %>" >
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" name="customer_email" value="<%= customer[0].customer_email %>" >
+            </div>
+            <div class="form-group">
+                <label for="phoneNumber">Phone Number</label>
+                <input type="text" class="form-control" id="phoneNumber" name="customer_phone_number" value="<%= customer[0].customer_phone_number %>" >
+            </div>
+            <div class="form-group">
+                <label for="streetAddress">Street Address</label>
+                <input type="text" class="form-control" id="streetAddress" name="customer_street_address" value="<%= customer[0].customer_street_address %>" >
+            </div>
+            <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" class="form-control" id="city" name="customer_city" value="<%= customer[0].customer_city %>" >
+            </div>
+            <div class="form-group">
+                <label for="state">State</label>
+                <input type="text" class="form-control" id="state" name="customer_state" value="<%= customer[0].customer_state %>" >
+            </div>
+            <div class="form-group">
+                <label for="zip">ZIP</label>
+                <input type="text" class="form-control" id="zip" name="customer_zip" value="<%= customer[0].customer_zip %>" >
+            </div>
+    </form>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <button class="btn btn-primary text-white" onclick="updateAccountDetails()">Update Account Details</button>
+                    <button class="btn btn-danger text-white" onclick="deleteAccount()">Delete Account</button>
                 </div>
             </div>
         </div>
     </div>
-</section>
-<!-- End Fun Facts Section -->
 
-<!-- Contact info -->
+    <script>
+
+        function updateAccountDetails() {
+            // Code to update account details
+            var formData = new FormData(document.getElementById("accountForm"));
+            var jsonData = {};
+            for (var [key, value] of formData.entries()) {
+                jsonData[key] = value;
+            }
+            console.log(jsonData);
+            fetch("/accountUpdate", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(jsonData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                // Handle response data
+            })
+            .catch(error => {
+                console.error(error);
+                // Handle error
+            });
+        }
+
+        function deleteAccount() {
+            // Code to delete account
+            var customerUsername = "<%= customer[0].customer_username %>";
+            fetch("/deleteAccount", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ customer_username: customerUsername })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                // Handle response data
+            })
+            .catch(error => {
+                console.error(error);
+                // Handle error
+            });
+        }
+    </script>
+</section>
+
+
 <section id="contact" class="contact">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title text-center">
                     <h3>Contact Us</h3>
+
                 </div>
             </div>
         </div>
@@ -548,8 +443,6 @@ This is our bottle website-->
                     </ul>
                 </div>
             </div>
-
-            <!-- Working hours -->
             <div class="col-md-4 col-md-offset-4">
                 <div class="footer-contact-info">
                     <h4>Working Hours</h4>
@@ -602,6 +495,8 @@ This is our bottle website-->
         <div class="dot2"></div>
     </div>
 </div>
+
+
 
 <!-- jQuery Version 2.1.1 -->
 <script src="js/jquery-2.1.1.min.js"></script>
