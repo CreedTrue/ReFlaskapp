@@ -186,7 +186,7 @@ app.get("/product", (req, res) => {
 });
 
 // Get all records from the "users" table
-app.get("/admin", async (req, res) => {
+app.get("/account", async (req, res) => {
   const customerUsername = req.session.customer_username; // Get the customer_username from session variables
   //console.log(customerUsername);
   const customer = await knex
@@ -194,7 +194,7 @@ app.get("/admin", async (req, res) => {
     .from("customer")
     .where("customer_username", "=", customerUsername); // Add a where condition to filter by customer_username
 
-  res.render("admin", { customer: customer }); // Render the admin.ejs view and pass the customer data
+  res.render("account", { customer: customer }); // Render the account.ejs view and pass the customer data
 
 });
 
