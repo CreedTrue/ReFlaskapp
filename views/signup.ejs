@@ -1,0 +1,209 @@
+<!-- View that the employee sees when they open the app -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script async src="https://cdn.byu.edu/byu-theme-components/2.x.x/byu-theme-components.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.byu.edu/byu-theme-components/2.x.x/byu-theme-components.min.css"
+        media="all">
+    <link rel="stylesheet" href="styling.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            background-image: url('images/pexels-mali-maeder-802221.jpg');
+            background-size: cover;
+            margin: 0;
+            font-family: 'Public Sans', 'Noto Sans', 'Open Sans', Helvetica, Arial, sans-serif;
+        }
+
+        .container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .center-div {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #5BB12F;
+            width: 700px;
+            height: 700px;
+            text-align: center;
+            border-radius: 10px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .footer {
+            width: 100%;
+            text-align: center;
+        }
+
+        .username {
+            height: 35px;
+            width: 310px;
+            margin: 10px;
+            background-color: lightgrey;
+            border-radius: 5px;
+        }
+
+        .password {
+            height: 35px;
+            width: 310px;
+            margin: 10px;
+            background-color: lightgrey;
+            border-radius: 5px;
+        }
+
+        .signInButton {
+            height: 50px;
+            width: 120px;
+            font-size: 25px;
+            background-color: #5BB12F;
+            color: white;
+            border-radius: 5px;
+            margin-top: 50px;
+        }
+
+        .signInButton:hover {
+            color: #5BB12F;
+            background-color: lightgray;
+            cursor: pointer;
+            border-color: #5BB12F;
+        }
+
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 350px;
+        }
+
+        button {
+            color: #5BB12F;
+            background-color: white;
+        }
+        .side-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .side {
+            width: 48%; /* Adjust as needed, leaving some space for margins */
+        }
+        
+    </style>
+</head>
+
+<body>
+<!-- Signup form -->
+    <div class="container">
+        <div class="center-div" style="background-color: #343434; font-weight: bold;">
+            <h1 style="margin-top: 60px; font-size: 50px;">Create Account</h1>
+            <form method="post" action="/signup" onsubmit="return validatePasswords();"> <!-- Use a form tag and specify the method and action -->
+                <div class="side-container">
+                    <div class="side" style="margin-left: 20px;">
+                        <!-- First name -->
+                        <div>
+                            <label for="customer_first_name"></label>
+                            <input style="font-size:larger;" class="password" type="text" id="customer_first_name" tabindex="1"
+                                accesskey="p" placeholder="First Name" autocomplete="off" size="50" autofocus="" name="customer_first_name"
+                                value="">
+                        </div>
+                        <!-- Last name -->
+                        <div>
+                            <label for="customer_last_name"></label>
+                            <input style="font-size:larger;" class="password" type="text" id="customer_last_name" tabindex="2"
+                                accesskey="p" placeholder="Last Name" autocomplete="off" size="50" name="customer_last_name"
+                                value="">
+                        </div>
+                        <!-- Email -->
+                        <div>
+                            <label for="customer_email"></label>
+                            <input style="font-size:larger;" class="password" type="email" id="customer_email" tabindex="3"
+                                accesskey="p" placeholder="Email" autocomplete="off" size="50" name="customer_email"
+                                value="">
+                        </div>
+                        <!-- Phone -->
+                        <div>
+                            <label for="customer_phone_number"></label>
+                            <input style="font-size:larger;" class="password" type="text" id="customer_phone_number" tabindex="4"
+                                accesskey="p" placeholder="Phone" autocomplete="off" size="50" name="customer_phone_number"
+                                value="">
+                        </div>
+                        <div>
+                        <!-- Username -->
+                            <label for="username"></label>
+                            <input style="font-size:larger;" class="username" id="username" tabindex="5" type="text"
+                                accesskey="u" placeholder="Username" autocomplete="off" size="50"
+                                name="customer_username" value="">
+                        </div>
+                        <!-- Password -->
+                        <div>
+                            <label for="password"></label>
+                            <input style="font-size:larger;" class="password" type="password" id="password" tabindex="6"
+                                accesskey="p" placeholder="Password" autocomplete="off" size="50" name="customer_password"
+                                value="">
+                        </div>
+                        <div>
+                            <label for="verifyPassword"></label>
+                            <input style="font-size:larger;" class="password" type="password" id="verifyPassword" tabindex="7"
+                                accesskey="p" placeholder="Verify Password" autocomplete="off" size="50" name="customer_password_check"
+                                value="">
+                        </div>
+                    </div>
+                    <div class="side" style="margin-right: 20px;">
+                        <!-- Address -->
+                        <div>
+                            <label for="customer_street_address"></label>
+                            <input style="font-size:larger;" class="password" type="text" id="customer_street_address" tabindex="8"
+                                accesskey="p" placeholder="Address" autocomplete="off" size="50" name="customer_street_address"
+                                value="">
+                        </div>
+                        <div>
+                            <label for="customer_city"></label>
+                            <input style="font-size:larger;" class="password" type="text" id="customer_city" tabindex="9"
+                                accesskey="p" placeholder="City" autocomplete="off" size="50" name="customer_city"
+                                value="">
+                        </div>
+                        <div>
+                            <label for="customer_state"></label>
+                            <input style="font-size:larger;" class="password" type="text" id="customer_state" tabindex="10"
+                                accesskey="p" placeholder="State" autocomplete="off" size="2" name="customer_state"
+                                value="" maxlength="2">
+                        </div>
+                        <div>
+                            <label for="customer_zip"></label>
+                            <input style="font-size:larger;" class="password" type="text" id="customer_zip" tabindex="11"
+                                accesskey="p" placeholder="Zip" autocomplete="off" size="50" name="customer_zip"
+                                value="" maxlength="5">
+                        </div>
+                    </div>
+                </div>
+                <input class="signInButton" id="signInButton" name="submit" accesskey="l" type="submit" value="Create"
+                    tabindex="12">
+            </form>
+        </div>
+    </div>
+
+    <!-- Your existing head content -->
+    <script>
+        function validatePasswords() {
+            var password = document.getElementById("password").value;
+            var verifyPassword = document.getElementById("verifyPassword").value;
+
+            if (password !== verifyPassword) {
+                alert("Passwords do not match. Please enter the same password in both fields.");
+                return false; // Prevent form submission
+            }
+
+            return true; // Allow form submission
+        }
+    </script>
+</body>
+
+</html>
