@@ -82,7 +82,7 @@ app.get("/", requireLogin, (req, res) => {
   // Additional data to pass to the view if the user is logged in
   const extraData = {
     customer_username: req.session.customer_username,
-    customer_first_name: req.session.er_first_name,
+    customer_first_name: req.session.customer_first_name,
     // Add more data as needed
   };
 
@@ -122,6 +122,49 @@ app.post("/login", (req, res) => {
       console.error("Error querying the database:", error);
       res.status(500).send("Internal Server Error");
     });
+});
+
+// Signup get
+app.get("/signup", (req, res) => {
+  res.render("signup")
+});
+
+app.post('/signup', async (req, res) => {
+  const {
+    customer_username,
+    customer_password,
+    customer_first_name, 
+    customer_last_name,
+    customer_email,
+    customer_phone_number,
+    customer_street_address,
+    customer_city,
+    customer_state,
+    customer_zip,
+  } = req.body;
+
+  try {
+    // Insert into 'customer' table using Knex.js
+    await knex('customer').insert({
+      customer_username: customer_username,
+      customer_password: customer_password,
+      customer_first_name: customer_first_name,
+      customer_last_name: customer_last_name,
+      customer_email: customer_email,
+      customer_phone_number: customer_phone_number,
+      customer_street_address: customer_street_address,
+      customer_city: customer_city,
+      customer_state: customer_state,
+      customer_zip: customer_zip,
+    });
+
+    // Send a success response
+    res.redirect("/login");
+  } catch (error) {
+    // Handle errors
+    console.error('Error inserting into database:', error);
+    res.status(500).send('Internal Server Error');
+  }
 });
 
 // Products page
