@@ -347,30 +347,15 @@ This is our bottle website-->
         </form>
 
         <!-- Product listings -->
-        <% for (let i=0; i < products.length; i++) { %>
-            <!-- Single Product -->
-            <div class="col-md-6 col-lg-4 col-xl-3">
-                <div id="product-<%= i + 1 %>" class="single-product" onclick="navigateToProduct('<%= products[i].bottle_id %>')">
-                    <div class="part-1"
-                        style="background: url('<%= products[i].bottle_img_url %>'); background-size: cover; background-repeat: no-repeat">
-                        <!-- Part 1 content -->
-                    </div>
-                    <div class="part-2">
-                        <h2 class="product-title" style="color: white; font-weight: bold;">
-                            <%= products[i].bottle_description %>
-                        </h2>
-                        <!-- Part 2 content -->
-                    </div>
-                </div>
-            </div>
-            <% } %>
+        <div id="searchResults"></div>
+        
         <div class="row" id="productList">
             <% for (let i=0; i < products.length; i++) { %>
                 <!-- Single Product -->
                 <div class="col-md-6 col-lg-4 col-xl-3">
                     <div id="product-<%= i + 1 %>" class="single-product">
                         <div class="part-1"
-                            style="background: url('<%= products[i].bottle_img_url %>'); background-size: cover; background-repeat: no-repeat">
+                            style="background: url('<%= products[i].bottle_img_url %>'); background-size: cover; background-repeat: no-repeat" onclick="navigateToProduct('<%= products[i].bottle_id %>')">
                             <!-- Part 1 content -->
                         </div>
                         <div class="part-2">
@@ -404,22 +389,23 @@ This is our bottle website-->
                 return response.json();
             })
             .then(products => {
+                document.getElementById("productList").style.display = 'none'
                 // Update the product list with the search results
-                const productList = document.getElementById("productList");
-                productList.innerHTML = "";
+                const searchResults = document.getElementById("searchResults");
+                searchResults.innerHTML = "";
 
                 for (let i = 0; i < products.length; i++) {
                     // Create HTML for each product
                     const productHtml = `
                         <div class="col-md-6 col-lg-4 col-xl-3">
                             <div id="product-${i + 1}" class="single-product">
-                                <div class="part-1" style="background: url('${products[i].bottle_img_url}'); background-size: cover; background-repeat: no-repeat"></div>
+                                <div class="part-1" style="background: url('${products[i].bottle_img_url}'); background-size: cover; background-repeat: no-repeat" onclick="navigateToProduct('${products[i].bottle_id}')"></div>
                                 <div class="part-2">
                                     <h2 class="product-title" style="color: white; font-weight: bold;">${products[i].bottle_description}</h2>
                                 </div>
                             </div>
                         </div>`;
-                    productList.innerHTML += productHtml;
+                    searchResults.innerHTML += productHtml;
                 }
             })
             .catch(error => console.error("Error fetching search results:", error));

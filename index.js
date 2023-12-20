@@ -46,7 +46,7 @@ const knex = require("knex")({
   connection: {
     host: process.env.RDS_HOSTNAME || "localhost",
     user: process.env.RDS_USERNAME || "postgres",
-    password: process.env.RDS_PASSWORD || "IS403BYU",
+    password: process.env.RDS_PASSWORD || "IAmElonMuskrat",
     database: process.env.RDS_DB_NAME || "ReFlask_DB",
     port: process.env.RDS_PORT || 5432,
     ssl: process.env.DB_SSL ? { rejectUnauthorized: false } : false,
@@ -244,6 +244,28 @@ app.get("/product", (req, res) => {
       console.log(products);
       // Render the product.ejs view and pass data for all products so they can be dinamically displayed
       res.render("product", { products: products });
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(500).json({ error: "Internal server error" });
+    });
+});
+
+// Define a route for the product details page
+app.get('/product-details', (req, res) => {
+  // Extract the bottle_id from the query parameters
+  const bottleId = req.query.bottle_id;
+
+    // Get this products from the database
+    knex
+    .select("*")
+    .from("bottle")
+    .where({ bottle_id: bottleId })
+    .then((data) => {
+      const products = data; // Save the data to the "products" variable
+      console.log(products);
+      // Render the product.ejs view and pass data for all products so they can be dinamically displayed
+      res.render("product-details", { products: products }); 
     })
     .catch((error) => {
       console.log(error);
