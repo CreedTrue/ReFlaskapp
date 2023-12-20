@@ -1,0 +1,655 @@
+<!-- IS 403 GROUP 1-4 (Payton Womack, Creed Garner, Landon Webb, Jarom Mollinet) 
+This is our bottle website-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>ReFlask - One Page Multipurpose Bootstrap Theme</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="asset/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome CSS -->
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+
+
+    <!-- Animate CSS -->
+    <link href="css/animate.css" rel="stylesheet">
+
+    <!-- Owl-Carousel -->
+    <link rel="stylesheet" href="css/owl.carousel.css">
+    <link rel="stylesheet" href="css/owl.theme.css">
+    <link rel="stylesheet" href="css/owl.transitions.css">
+
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+
+    <!-- Colors CSS -->
+    <link rel="stylesheet" type="text/css" href="css/color/green.css">
+
+
+
+    <!-- Colors CSS -->
+    <link rel="stylesheet" type="text/css" href="css/color/green.css" title="green">
+    <link rel="stylesheet" type="text/css" href="css/color/light-red.css" title="light-red">
+    <link rel="stylesheet" type="text/css" href="css/color/blue.css" title="blue">
+    <link rel="stylesheet" type="text/css" href="css/color/light-blue.css" title="light-blue">
+    <link rel="stylesheet" type="text/css" href="css/color/yellow.css" title="yellow">
+    <link rel="stylesheet" type="text/css" href="css/color/light-green.css" title="light-green">
+
+    <!-- Custom Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+
+
+    <!-- Modernizer js -->
+    <script src="js/modernizr.custom.js"></script>
+
+
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        img {
+            max-width: 313px;
+            height: 250px;
+            overflow: auto;
+        }
+
+        .portfolio-item {
+            height: 400px;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+        body {
+            font-family: "Poppins", sans-serif;
+            color: #e0e0e0;
+            background: linear-gradient(to top left, #444444, #222222);
+        }
+
+        a,
+        a:hover {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .section-products {
+            padding: 80px 0 54px;
+        }
+
+        .section-products .header {
+            margin-bottom: 50px;
+        }
+
+        .section-products .header h3 {
+            font-size: 1rem;
+            color: #fe302f;
+            font-weight: 500;
+        }
+
+        .section-products .header h2 {
+            font-size: 2.2rem;
+            font-weight: 400;
+            color: #444444;
+        }
+
+        .section-products .single-product {
+            margin-bottom: 26px;
+        }
+
+        .section-products .single-product .part-1 {
+            position: relative;
+            height: 290px;
+            max-height: 290px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .section-products .single-product .part-1::before {
+            position: absolute;
+            content: "";
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            transition: all 0.3s;
+        }
+
+        .section-products .single-product:hover .part-1::before {
+            transform: scale(1.2, 1.2) rotate(5deg);
+        }
+
+        .section-products #product-1 .part-1::before {
+            background: url("https://i.ibb.co/L8Nrb7p/1.jpg") no-repeat center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            transition: all 0.3s;
+        }
+
+        .section-products #product-2 .part-1::before {
+            background: url("https://i.ibb.co/cLnZjnS/2.jpg") no-repeat center;
+            background-size: cover;
+        }
+
+        .section-products #product-3 .part-1::before {
+            background: url("https://i.ibb.co/L8Nrb7p/1.jpg") no-repeat center;
+            background-size: cover;
+        }
+
+        .section-products #product-4 .part-1::before {
+            background: url("https://i.ibb.co/cLnZjnS/2.jpg") no-repeat center;
+            background-size: cover;
+        }
+
+        .section-products .single-product .part-1 .discount,
+        .section-products .single-product .part-1 .new {
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            color: #ffffff;
+            background-color: #fe302f;
+            padding: 2px 8px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+
+        .section-products .single-product .part-1 .new {
+            left: 0;
+            background-color: #444444;
+        }
+
+        .section-products .single-product .part-1 ul {
+            position: absolute;
+            bottom: -41px;
+            left: 20px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            opacity: 0;
+            transition: bottom 0.5s, opacity 0.5s;
+        }
+
+        .section-products .single-product:hover .part-1 ul {
+            bottom: 30px;
+            opacity: 1;
+        }
+
+        .section-products .single-product .part-1 ul li {
+            display: inline-block;
+            margin-right: 4px;
+        }
+
+        .section-products .single-product .part-1 ul li a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            background-color: #ffffff;
+            color: #444444;
+            text-align: center;
+            box-shadow: 0 2px 20px rgb(50 50 50 / 10%);
+            transition: color 0.2s;
+        }
+
+        .section-products .single-product .part-1 ul li a:hover {
+            color: #fe302f;
+        }
+
+        .section-products .single-product .part-2 .product-title {
+            font-size: 1rem;
+        }
+
+        .section-products .single-product .part-2 h4 {
+            display: inline-block;
+            font-size: 1rem;
+        }
+
+        .section-products .single-product .part-2 .product-old-price {
+            position: relative;
+            padding: 0 7px;
+            margin-right: 2px;
+            opacity: 0.6;
+        }
+
+        .section-products .single-product .part-2 .product-old-price::after {
+            position: absolute;
+            content: "";
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: #ebebeb;
+            transform: translateY(-50%);
+        }
+    </style>
+</head>
+
+<body class="index"></body>
+
+
+<!-- Styleswitcher
+================================================== -->
+<!-- <div class="colors-switcher">
+            <a id="show-panel" class="hide-panel"><i class="fa fa-tint"></i></a>        
+                <ul class="colors-list">
+                    <li><a title="Light Red" onClick="setActiveStyleSheet('light-red'); return false;" class="light-red"></a></li>
+                    <li><a title="Blue" class="blue" onClick="setActiveStyleSheet('blue'); return false;"></a></li>
+                    <li class="no-margin"><a title="Light Blue" onClick="setActiveStyleSheet('light-blue'); return false;" class="light-blue"></a></li>
+                    <li><a title="Green" class="green" onClick="setActiveStyleSheet('green'); return false;"></a></li>
+                    
+                    <li class="no-margin"><a title="light-green" class="light-green" onClick="setActiveStyleSheet('light-green'); return false;"></a></li>
+                    <li><a title="Yellow" class="yellow" onClick="setActiveStyleSheet('yellow'); return false;"></a></li>
+                    
+                </ul>
+
+        </div>   -->
+<!-- Styleswitcher End
+================================================== -->
+
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand page-scroll" href="/">ReFlask</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="hidden">
+                    <a href="#page-top"></a>
+                </li>
+                <li>
+                    <a href="/product">Product Gallery</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="/#portfolio">Portfolio</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="/#service">Services</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="/#team">Team</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="/#testimonial">Testimonials</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="/#charities">Charities</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="/#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+
+<!-- Product listing Area start -->
+<style>
+    .section-products {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+<section class="section-products">
+    <div class="card text-center">
+        <div class="card-header">
+          <h3>Administrator Tools</h3>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">View and Search the database.<br>
+                Give Account Approval to add new Administrators</h5>
+            
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            
+                            <a class="btn btn-primary text-white" href="/search">Search Survey Records</a>
+                            <br><br>
+                            <h3 class="card-title">Account Management</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        <br>
+        <form id="accountForm">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" id="username" name="customer_username" value="<%= customer[0].customer_username %>" readonly>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="text" class="form-control" id="password" name="customer_password" value="<%= customer[0].customer_password %>">
+            </div>
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" class="form-control" id="firstName" name="customer_first_name" value="<%= customer[0].customer_first_name %>" >
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" class="form-control" id="lastName" name="customer_last_name" value="<%= customer[0].customer_last_name %>" >
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" name="customer_email" value="<%= customer[0].customer_email %>" >
+            </div>
+            <div class="form-group">
+                <label for="phoneNumber">Phone Number</label>
+                <input type="text" class="form-control" id="phoneNumber" name="customer_phone_number" value="<%= customer[0].customer_phone_number %>" >
+            </div>
+            <div class="form-group">
+                <label for="streetAddress">Street Address</label>
+                <input type="text" class="form-control" id="streetAddress" name="customer_street_address" value="<%= customer[0].customer_street_address %>" >
+            </div>
+            <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" class="form-control" id="city" name="customer_city" value="<%= customer[0].customer_city %>" >
+            </div>
+            <div class="form-group">
+                <label for="state">State</label>
+                <input type="text" class="form-control" id="state" name="customer_state" value="<%= customer[0].customer_state %>" >
+            </div>
+            <div class="form-group">
+                <label for="zip">ZIP</label>
+                <input type="text" class="form-control" id="zip" name="customer_zip" value="<%= customer[0].customer_zip %>" >
+            </div>
+    </form>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <button class="btn btn-primary text-white" onclick="updateAccountDetails()">Update Account Details</button>
+                    <button class="btn btn-danger text-white" onclick="deleteAccount()">Delete Account</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        function updateAccountDetails() {
+            // Code to update account details
+            var formData = new FormData(document.getElementById("accountForm"));
+            var jsonData = {};
+            for (var [key, value] of formData.entries()) {
+                jsonData[key] = value;
+            }
+            console.log(jsonData);
+            fetch("/accountUpdate", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(jsonData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                // Handle response data
+            })
+            .catch(error => {
+                console.error(error);
+                // Handle error
+            });
+        }
+
+        function deleteAccount() {
+            // Code to delete account
+            var customerUsername = "<%= customer[0].customer_username %>";
+            fetch("/deleteAccount", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ customer_username: customerUsername })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                // Handle response data
+            })
+            .catch(error => {
+                console.error(error);
+                // Handle error
+            });
+        }
+    </script>
+</section>
+
+
+
+<!-- Start Feature Section -->
+<section id="service" class="services-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-title text-center">
+                    <h3 style="color: white">Our Services</h3>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="feature-2">
+                    <div class="media">
+                        <div class="pull-left">
+                            <i class="fa fa-magic"></i>
+                            <div class="border"></div>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading" style="color: white">Art Design</h4>
+                            <p style="color: white">Each bottle is unique and painted carefully</p>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.col-md-4 -->
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="feature-2">
+                    <div class="media">
+                        <div class="pull-left">
+                            <i class="fa fa-recycle"></i>
+                            <div class="border"></div>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading" style="color: white">Recycle</h4>
+                            <p style="color: white">Every bottle is reused and recycled</p>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.col-md-4 -->
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="feature-2">
+                    <div class="media">
+                        <div class="pull-left">
+                            <i class="fa fa-globe"></i>
+                            <div class="border"></div>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading" style="color: white">Worldwide Mission</h4>
+                            <p style="color: white">Goal is to inspire others to create something out of nothing</p>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.col-md-4 -->
+
+        </div><!-- /.row -->
+
+    </div><!-- /.container -->
+</section>
+<!-- End Feature Section -->
+
+
+
+<!-- Start Fun Facts Section -->
+<section class="fun-facts">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-3">
+                <div class="counter-item">
+                    <i class="fa fa-solid fa-tint"></i>
+                    <div class="timer" id="item1" data-to="9" data-speed="3000"></div>
+                    <h5>Water plants donated to</h5>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3">
+                <div class="counter-item">
+                    <i class="fa fa-check"></i>
+                    <div class="timer" id="item2" data-to="702" data-speed="3000"></div>
+                    <h5>Bottles recycled</h5>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3">
+                <div class="counter-item">
+                    <i class="fa fa-cubes"></i>
+                    <div class="timer" id="item3" data-to="321" data-speed="3000"></div>
+                    <h5>Lbs of aluminum recycled</h5>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3">
+                <div class="counter-item">
+                    <i class="fa fa-male"></i>
+                    <div class="timer" id="item4" data-to="500" data-speed="3000"></div>
+                    <h5>Happy clients</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Fun Facts Section -->
+
+
+
+
+
+
+
+
+<section id="contact" class="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title text-center">
+                    <h3>Contact Us</h3>
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="footer-contact-info">
+                    <h4>Contact info</h4>
+                    <ul>
+                        <li><strong>E-mail :</strong> your-email@mail.com</li>
+                        <li><strong>Phone :</strong> +8801-6778776</li>
+                        <li><strong>Mobile :</strong> +8801-45565378</li>
+                        <li><strong>Web :</strong> yourdomain.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-4 col-md-offset-4">
+                <div class="footer-contact-info">
+                    <h4>Working Hours</h4>
+                    <ul>
+                        <li><strong>Mon-Wed :</strong> 9 am to 5 pm</li>
+                        <li><strong>Thurs-Fri :</strong> 12 pm to 10 pm</li>
+                        <li><strong>Sat :</strong> 9 am to 3 pm</li>
+                        <li><strong>Sunday :</strong> Closed</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="style-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-xs-12">
+                    <span class="copyright">Copyright &copy; <a href="http://guardiantheme.com">ReFlask LLC</a>
+                        2023</span>
+                </div>
+                <div class="col-md-4 col-xs-12">
+                    <div class="footer-social text-center">
+                        <ul>
+                            <li><a href="https://www.instagram.com/reflask_/"><i class="fa fa-facebook"></i></a>
+                            </li>
+                            <li><a href="https://www.linkedin.com/in/jarommollinet/"><i class="fa fa-linkedin"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4 col-xs-12">
+                    <div class="footer-link">
+                        <ul class="pull-right">
+                            <li><a href="#">Privacy Policy</a>
+                            </li>
+                            <li><a href="#">Terms of Use</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</section>
+
+
+<div id="loader">
+    <div class="spinner">
+        <div class="dot1"></div>
+        <div class="dot2"></div>
+    </div>
+</div>
+
+
+
+<!-- jQuery Version 2.1.1 -->
+<script src="js/jquery-2.1.1.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="asset/js/bootstrap.min.js"></script>
+
+<!-- Plugin JavaScript -->
+<script src="js/jquery.easing.1.3.js"></script>
+<script src="js/classie.js"></script>
+<script src="js/count-to.js"></script>
+<script src="js/jquery.appear.js"></script>
+<script src="js/cbpAnimatedHeader.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/jquery.fitvids.js"></script>
+<script src="js/styleswitcher.js"></script>
+
+<!-- Contact Form JavaScript -->
+<script src="js/jqBootstrapValidation.js"></script>
+<script src="js/contact_me.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="js/script.js"></script>
+
+</body>
+
+</html>
