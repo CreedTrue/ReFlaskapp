@@ -46,10 +46,10 @@ const knex = require("knex")({
   connection: {
     host: process.env.RDS_HOSTNAME || "localhost",
     user: process.env.RDS_USERNAME || "postgres",
-    password: process.env.RDS_PASSWORD || "IAmElonMuskrat",
+    password: process.env.RDS_PASSWORD || "Pancakes09",
     database: process.env.RDS_DB_NAME || "ReFlask_DB",
     port: process.env.RDS_PORT || 5432,
-    ssl: process.env.DB_SSL ? {rejectUnauthorized: false} : false
+    ssl: process.env.DB_SSL ? { rejectUnauthorized: false } : false,
   },
 });
 // Check if the connection is successful
@@ -134,12 +134,29 @@ app.get("/product", (req, res) => {
       const products = data; // Save the data to the "products" variable
       console.log(products);
       // Render the product.ejs view and pass data for all products so they can be dinamically displayed
-      res.render("product", { products: products }); 
+      res.render("product", { products: products });
     })
     .catch((error) => {
       console.log(error);
       res.status(500).json({ error: "Internal server error" });
     });
+});
+
+// Search route
+app.get("/search", async (req, res) => {
+  try {
+    const searchQuery = req.query.query.toLowerCase();
+
+    // Use Knex to query the database
+    const searchResults = await knex("bottle").where(
+      knex.raw("LOWER(bottle_description) LIKE ?", [`%${searchQuery}%`])
+    );
+
+    res.json(searchResults);
+  } catch (error) {
+    console.error("Error fetching search results:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
 });
 
 // Start the server
