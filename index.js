@@ -46,7 +46,7 @@ const knex = require("knex")({
   connection: {
     host: process.env.RDS_HOSTNAME || "localhost",
     user: process.env.RDS_USERNAME || "postgres",
-    password: process.env.RDS_PASSWORD || "IAmElonMuskrat",
+    password: process.env.RDS_PASSWORD || "IS403BYU",
     database: process.env.RDS_DB_NAME || "ReFlask_DB",
     port: process.env.RDS_PORT || 5432,
     ssl: process.env.DB_SSL ? {rejectUnauthorized: false} : false
@@ -121,6 +121,72 @@ app.post("/login", (req, res) => {
     .catch((error) => {
       console.error("Error querying the database:", error);
       res.status(500).send("Internal Server Error");
+    });
+});
+
+// Products page
+app.get("/product", (req, res) => {
+  // Get all products from the database
+  knex
+    .select("*")
+    .from("bottle")
+    .then((data) => {
+      const products = data; // Save the data to the "products" variable
+      console.log(products);
+      // Render the product.ejs view and pass data for all products so they can be dynamically displayed
+      res.render("product", { products: products }); 
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(500).json({ error: "Internal server error" });
+    });
+});
+
+// Get all records from the "users" table
+app.get("/admin", async (req, res) => {
+  const customerUsername = req.session.customer_username; // Get the customer_username from session variables
+  //console.log(customerUsername);
+  const customer = await knex
+    .select("*")
+    .from("customer")
+    .where("customer_username", "=", customerUsername); // Add a where condition to filter by customer_username
+
+  res.render("admin", { customer: customer }); // Render the admin.ejs view and pass the customer data
+
+});
+
+// Delete Account
+app.post("/deleteAccount", (req, res) => {
+  const customerUsername = req.body.customer_username; // Get the customer_username from the request body
+
+  // Delete the row from the customers table that matches the customer_username
+  knex("customer")
+    .where("customer_username", customerUsername)
+    .del()
+    .then(() => {
+      req.session.destroy(); // Clear the session storage
+      res.redirect("/"); // Redirect to the home route
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(500).json({ error: "Internal server error" });
+    });
+});
+
+// Update Account
+app.post("/accountUpdate", (req, res) => {
+  const customerData = req.body; // Get the customer data from the request body
+
+  // Update the row in the customers table that matches the customer_username
+  knex("customer")
+    .where("customer_username", customerData.customer_username)
+    .update(customerData)
+    .then(() => {
+      res.redirect("/admin");
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(500).json({ error: "Internal server error" });
     });
 });
 
