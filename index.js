@@ -185,6 +185,28 @@ app.get("/product", (req, res) => {
     });
 });
 
+// Define a route for the product details page
+app.get('/product-details', (req, res) => {
+  // Extract the bottle_id from the query parameters
+  const bottleId = req.query.bottle_id;
+
+    // Get this products from the database
+    knex
+    .select("*")
+    .from("bottle")
+    .where({ bottle_id: bottleId })
+    .then((data) => {
+      const products = data; // Save the data to the "products" variable
+      console.log(products);
+      // Render the product.ejs view and pass data for all products so they can be dinamically displayed
+      res.render("product-details", { products: products }); 
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(500).json({ error: "Internal server error" });
+    });
+});
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

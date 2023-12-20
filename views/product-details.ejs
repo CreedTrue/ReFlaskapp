@@ -109,8 +109,9 @@ This is our bottle website-->
 
         .section-products .single-product .part-1 {
             position: relative;
-            height: 290px;
-            max-height: 290px;
+            height: 700px;
+            max-height: 700px;
+            width: 700px;
             margin-bottom: 20px;
             overflow: hidden;
         }
@@ -128,10 +129,6 @@ This is our bottle website-->
 
         .section-products .single-product:hover .part-1::before {
             transform: scale(1.2, 1.2) rotate(5deg);
-        }
-
-        .single-product:hover {
-            cursor: pointer;
         }
 
         .section-products #product-1 .part-1::before {
@@ -334,8 +331,7 @@ This is our bottle website-->
         <div class="row justify-content-center text-center">
             <div class="col-md-8 col-lg-6">
                 <div class="header">
-                    <h2 style="color: white; font-weight: bold;">Featured Product</h2>
-
+                    <h2 style="color: white; font-weight: bold;"><%= products[0].bottle_description %></h2>
                 </div>
             </div>
         </div>
@@ -343,15 +339,21 @@ This is our bottle website-->
         <!-- Product listings -->
         <% for (let i=0; i < products.length; i++) { %>
             <!-- Single Product -->
-            <div class="col-md-6 col-lg-4 col-xl-3">
-                <div id="product-<%= i + 1 %>" class="single-product" onclick="navigateToProduct('<%= products[i].bottle_id %>')">
+            <div class="col-md-6 col-lg-4 col-xl-3" style="margin-left: 60px;">
+                <div id="product-<%= i + 1 %>" class="single-product">
                     <div class="part-1"
-                        style="background: url('<%= products[i].bottle_img_url %>'); background-size: cover; background-repeat: no-repeat">
+                        style="background: url('<%= products[i].bottle_img_url %>'); background-size: cover; background-repeat: no-repeat;">
                         <!-- Part 1 content -->
                     </div>
                     <div class="part-2">
                         <h2 class="product-title" style="color: white; font-weight: bold;">
-                            <%= products[i].bottle_description %>
+                            Bottle Description: <%= products[i].bottle_description %>
+                        </h2>
+                        <h2 class="product-title" style="color: white; font-weight: bold;">
+                            Bottle Brand: <%= products[i].bottle_brand %>
+                        </h2>
+                        <h2 class="product-title" style="color: white; font-weight: bold;">
+                            Bottle Size: <%= products[i].bottle_size %>
                         </h2>
                         <!-- Part 2 content -->
                     </div>
@@ -360,107 +362,6 @@ This is our bottle website-->
             <% } %>
     </div>
 </section>
-
-
-
-<!-- Start Feature Section -->
-<section id="service" class="services-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="section-title text-center">
-                    <h3 style="color: white">Our Services</h3>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="feature-2">
-                    <div class="media">
-                        <div class="pull-left">
-                            <i class="fa fa-magic"></i>
-                            <div class="border"></div>
-                        </div>
-                        <div class="media-body">
-                            <h4 class="media-heading" style="color: white">Art Design</h4>
-                            <p style="color: white">Each bottle is unique and painted carefully</p>
-                        </div>
-                    </div>
-                </div>
-            </div><!-- /.col-md-4 -->
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="feature-2">
-                    <div class="media">
-                        <div class="pull-left">
-                            <i class="fa fa-recycle"></i>
-                            <div class="border"></div>
-                        </div>
-                        <div class="media-body">
-                            <h4 class="media-heading" style="color: white">Recycle</h4>
-                            <p style="color: white">Every bottle is reused and recycled</p>
-                        </div>
-                    </div>
-                </div>
-            </div><!-- /.col-md-4 -->
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="feature-2">
-                    <div class="media">
-                        <div class="pull-left">
-                            <i class="fa fa-globe"></i>
-                            <div class="border"></div>
-                        </div>
-                        <div class="media-body">
-                            <h4 class="media-heading" style="color: white">Worldwide Mission</h4>
-                            <p style="color: white">Goal is to inspire others to create something out of nothing</p>
-                        </div>
-                    </div>
-                </div>
-            </div><!-- /.col-md-4 -->
-
-        </div><!-- /.row -->
-
-    </div><!-- /.container -->
-</section>
-<!-- End Feature Section -->
-
-
-
-<!-- Start Fun Facts Section -->
-<section class="fun-facts">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-sm-6 col-md-3">
-                <div class="counter-item">
-                    <i class="fa fa-solid fa-tint"></i>
-                    <div class="timer" id="item1" data-to="9" data-speed="3000"></div>
-                    <h5>Water plants donated to</h5>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-3">
-                <div class="counter-item">
-                    <i class="fa fa-check"></i>
-                    <div class="timer" id="item2" data-to="702" data-speed="3000"></div>
-                    <h5>Bottles recycled</h5>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-3">
-                <div class="counter-item">
-                    <i class="fa fa-cubes"></i>
-                    <div class="timer" id="item3" data-to="321" data-speed="3000"></div>
-                    <h5>Lbs of aluminum recycled</h5>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-3">
-                <div class="counter-item">
-                    <i class="fa fa-male"></i>
-                    <div class="timer" id="item4" data-to="500" data-speed="3000"></div>
-                    <h5>Happy clients</h5>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End Fun Facts Section -->
 
 <!-- Contact info -->
 <section id="contact" class="contact">
